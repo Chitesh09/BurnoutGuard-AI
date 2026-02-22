@@ -22,12 +22,16 @@ def create_tables():
     conn = get_connection()
     cursor = conn.cursor()
 
+    # DROP old users table completely
+    cursor.execute("DROP TABLE IF EXISTS users")
+
     cursor.execute("""
-    CREATE TABLE IF NOT EXISTS users (
+    CREATE TABLE users (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        username TEXT UNIQUE,
-        password TEXT,
-        role TEXT
+        username TEXT UNIQUE NOT NULL,
+        password BLOB NOT NULL,
+        role TEXT NOT NULL,
+        login_token TEXT
     )
     """)
 
@@ -58,8 +62,6 @@ def create_tables():
 
     conn.commit()
     conn.close()
-
-
 # ===============================
 # STUDENT DATA
 # ===============================
