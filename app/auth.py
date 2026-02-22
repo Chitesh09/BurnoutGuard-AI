@@ -3,6 +3,7 @@ import uuid
 from database import get_connection
 from datetime import datetime
 
+
 # ===============================
 # REGISTER USER
 # ===============================
@@ -11,12 +12,12 @@ def register_user(username, password, role):
     conn = get_connection()
     cursor = conn.cursor()
 
-    hashed_pw = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+    hashed_pw = bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt())
 
     try:
         cursor.execute("""
-        INSERT INTO users (username, password, role, created_at)
-        VALUES (?, ?, ?, ?)
+            INSERT INTO users (username, password, role, created_at)
+            VALUES (?, ?, ?, ?)
         """, (
             username,
             hashed_pw,
@@ -28,9 +29,16 @@ def register_user(username, password, role):
         conn.close()
         return True, "User registered successfully!"
 
-    except:
+    except Exception as e:
         conn.close()
-        return False, "Username already exists."
+
+        # Duplicate username error
+        if "UNIQUE constraint failed" in str(e):
+            return False, "Username already exists."
+
+        # Return real error for debugging (important for cloud)
+        return False, f"Registration error: {str(e)}"
+
 
 # ===============================
 # LOGIN USER
@@ -44,7 +52,8 @@ def login_user(username, password):
     user = cursor.fetchone()
 
     if user:
-        if bcrypt.checkpw(password.encode('utf-8'), user["password"]):
+        # Password check
+        if bcrypt.checkpw(password.encode("utf-8"), user["password"]):
 
             token = str(uuid.uuid4())
 
