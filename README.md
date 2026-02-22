@@ -1,20 +1,20 @@
 🎓 BurnoutGuard AI
 
-Campus Burnout Monitoring & Mental Wellness System
+=>Campus Burnout Monitoring & Mental Wellness System
 
 BurnoutGuard AI is a machine learning-powered web application designed to predict, monitor, and analyze student burnout risk in academic environments.
 
 It provides both individual student assessment and campus-level analytics dashboards for CRs or faculty members.
 
-Live Demo
+=>Live Demo
 
 (Add your Streamlit deployment link here after deployment)
 
- Problem Statement
+=>Problem Statement
 
 Academic burnout is increasingly common among students due to academic pressure, irregular sleep cycles, stress, and screen overuse. Institutions lack real-time monitoring systems to proactively detect burnout risk.
 
-BurnoutGuard AI aims to:
+=>BurnoutGuard AI aims to:
 
 .Predict burnout risk using ML
 
@@ -24,8 +24,9 @@ BurnoutGuard AI aims to:
 
 .Offer campus-level burnout analytics
 
- Key Features
- .Student Dashboard
+=> Key Features
+ 
+.Student Dashboard
 
 .Secure authentication system
 
@@ -139,4 +140,4 @@ BurnoutGuard-AI/
 
 💡 Author
 
-Developed as a full-stack AI system for academic wellness monitoring and placement portfolio demonstration.
+Developed as a full-stack AI system for academic wellness monitoring and placement portfolio demonstration. 
