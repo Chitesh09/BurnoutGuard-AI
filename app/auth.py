@@ -1,7 +1,7 @@
 import bcrypt
 import uuid
 import sqlite3
-from database import get_connection
+from app.database import get_connection
 
 
 def register_user(username, password, role):

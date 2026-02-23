@@ -4,9 +4,8 @@ import numpy as np
 import joblib
 import plotly.graph_objects as go
 
-from database import create_tables, save_burnout_record, get_user_records
-from auth import register_user, login_user
-
+from app.database import create_tables, save_burnout_record, get_user_records
+from app.auth import register_user, login_user
 
 # ----------------------------
 # PAGE CONFIG
